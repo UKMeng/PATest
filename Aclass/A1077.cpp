@@ -15,7 +15,7 @@ int main()
 	{
 		getline(cin,str[i]);//读取空格
 		reverse(str[i].begin(),str[i].end());
-		if(str[i].length()<minlen) minlen=str[i].length();
+		if(str[i].length()<minlen) minlen=str[i].lengths();
 	}
 	for (int i=0;i<minlen;i++)
 	{
