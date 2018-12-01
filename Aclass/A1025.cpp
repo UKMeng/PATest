@@ -13,7 +13,6 @@ struct Stu
 bool cmp(Stu a, Stu b)
 {
 	if(a.score != b.score) return a.score > b.score;
-	else if (a.lid != b.lid) return a.lid < b.lid;
 	else return a.id < b.id;
 }
 
