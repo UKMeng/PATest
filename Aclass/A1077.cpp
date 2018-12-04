@@ -7,15 +7,15 @@ int main()
 {
 	int N;
 	cin>>N;
-	getchar();//读掉换行符
+	getchar(); //读掉换行符
 	string str[110],kuchiguse;
 	bool flag=true;
 	int minlen=256;
 	for (int i=0;i<N;i++)
 	{
-		getline(cin,str[i]);//读取空格
+		getline(cin,str[i]); //读取空格
 		reverse(str[i].begin(),str[i].end());
-		if(str[i].length()<minlen) minlen=str[i].lengths();
+		if(str[i].length()<minlen) minlen=str[i].length();
 	}
 	for (int i=0;i<minlen;i++)
 	{
