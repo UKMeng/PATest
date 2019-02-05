@@ -31,7 +31,7 @@ int main()
     sort(coin, coin + N);
     int left = 0;
     bool flag = false;
-    while(coin[left] <= M || left = N - 1)
+    while(coin[left] <= M && left <= N - 1)
     {
         flag = binarySearch(left);
         if(flag) break;
