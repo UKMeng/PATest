@@ -20,7 +20,7 @@ int bfs(int sid) {
     while(!q.empty()) {
         node now = q.front();
         q.pop();
-        cout << now.id << " " << now.l << endl;
+        // cout << now.id << " " << now.l << endl;
         for(int i = 0; i < AVG[now.id].size(); i++) {
             node temp = AVG[now.id][i];
             temp.l = now.l + 1;
