@@ -6,7 +6,7 @@
 using namespace std;
 const int maxn = 210;
 const int INF = 0x3fffffff;
-int n, m, ha[maxn], G[maxn][maxn], d[maxn], MAXha = -1;
+int n, m, ha[maxn], G[maxn][maxn], d[maxn], MAXha = -1, numPath = 0;
 double MAXav = -1.0;
 map<string, int> cityid;
 map<int, string> cityname;
@@ -38,6 +38,7 @@ void Dijkstra(int s) {
 }
 void DFS(int v) {
     if(v == 0) {
+        numPath++;
         tempPath.push_back(v);
         int th = 0;
         double tav;
@@ -86,7 +87,7 @@ int main() {
     }
     Dijkstra(0);
     DFS(cityid["ROM"]);
-    cout << pre[cityid["ROM"]].size() << " " << ans.size() << " " << MAXha << " " << (int)MAXav << endl;
+    cout << numPath << " " << d[cityid["ROM"]] << " " << MAXha << " " << (int)MAXav << endl;
     for(int i = ans.size() - 1; i >= 0; i--) {
         cout << cityname[ans[i]];
         if(i > 0) cout << "->";
