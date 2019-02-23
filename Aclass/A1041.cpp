@@ -2,27 +2,16 @@
 using namespace std;
 const int maxn = 10010;
 const int maxp = 100010;
-
-int main()
-{
-    int hashtable[maxn] = {0};
-    int n;
-    int player[maxp] = {0};
-    cin >> n;
-    for(int i = 0; i < n; i++)
-    {
-        cin >> player[i];
-        hashtable[player[i]]++;
+int le[maxp], hashtable[maxn];
+int main() {
+    int n, win = -1;
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &le[i]);
+        hashtable[le[i]]++;
     }
-    int flag = 0;
-    for(flag = 0; flag < n; flag++)
-    {
-        if (hashtable[player[flag]] == 1)
-        {
-            cout << player[flag];
-            break;
-        }
-    }
-    if (flag == n) cout << "None";
+    for(int i = 0; i < n; i++) if(hashtable[le[i]] == 1) {win = le[i]; break;}
+    if(win == -1) cout << "None";
+    else cout << win;
     return 0;
 }
