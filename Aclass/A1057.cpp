@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <stack>
+#include <cstring>
 using namespace std;
 const int maxn = 100010;
 const int sqrn = 316;
@@ -26,7 +27,7 @@ int main() {
             block[temp / sqrn]++;
             table[temp]++;
         } else if(strcmp(cmd, "Pop") == 0) {
-           if(st.empty()) printf("Invaild\n");
+           if(st.empty()) printf("Invalid\n");
            else {
                int temp = st.top();
                printf("%d\n", temp);
@@ -35,7 +36,7 @@ int main() {
                table[temp]--;
            }
         } else {
-            if(st.empty()) printf("Invaild\n");
+            if(st.empty()) printf("Invalid\n");
             else {
                 int temp = st.size();
                 if(temp % 2 == 0) temp = temp / 2;
