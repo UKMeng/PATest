@@ -9,7 +9,7 @@ int main() {
         cin >> a >> b >> c;
         long long d = a + b;
         if(a > 0 && b > 0 && d < 0) flag = true;
-        else if(a < 0 && b < 0 && d > 0) flag = false;
+        else if(a < 0 && b < 0 && d >= 0) flag = false;
         else if(d > c) flag = true;
         else flag = false;
         cout << "Case #" << i + 1 << ": ";
