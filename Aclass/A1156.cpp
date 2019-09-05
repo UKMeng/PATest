@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> // 质数判断
 #include <cmath>
 using namespace std;
 bool isPrime(int n) {
