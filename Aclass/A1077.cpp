@@ -1,46 +1,27 @@
-#include <iostream>
+#include <iostream> // 字符串
 #include <cstring>
 #include <algorithm>
-#include <sstream>
 using namespace std;
-int main()
-{
-	int N;
-	cin>>N;
-	getchar(); //读掉换行符
-	string str[110],kuchiguse;
-	bool flag=true;
-	int minlen=256;
-	for (int i=0;i<N;i++)
-	{
-		getline(cin,str[i]); //读取空格
-		reverse(str[i].begin(),str[i].end());
-		if(str[i].length()<minlen) minlen=str[i].length();
-	}
-	for (int i=0;i<minlen;i++)
-	{
-		for(int j=1;j<N;j++)
-		{
-			if (str[0][i]!=str[j][i])
-			{
-				flag=false;
-				break;
+int main() {
+	int n;
+	cin >> n;
+	getchar();
+	string s, ans;
+	for(int i = 0; i < n; i++) {
+		getline(cin, s);
+		reverse(s.begin(), s.end());
+		if(i == 0) ans = s;
+		else {
+			for(int j = 0; j < ans.length(); j++) {
+				if(ans[j] != s[j]) {
+					ans = s.substr(0, j);
+					break;
+				}
 			}
 		}
-		if(flag==true)
-		{
-			kuchiguse.append(1,str[0][i]);
-			continue;
-		}
-		else
-			break;
 	}
-	if (kuchiguse.length()==0)
-		cout<<"nai"<<endl;
-	else 
-	{
-		reverse(kuchiguse.begin(),kuchiguse.end());
-		cout<<kuchiguse<<endl;
-	}
+	reverse(ans.begin(), ans.end());
+	if(ans.length() == 0) cout << "nai" << endl;
+	else cout << ans << endl;
 	return 0;
 }
