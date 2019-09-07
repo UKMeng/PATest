@@ -15,6 +15,10 @@ int main() {
     for(int i = 0; i < n; i++) cin >> gas[i].price >> gas[i].dis;
     gas[n].dis = d;
     sort(gas.begin(), gas.end(), cmp);
+    if(gas[0].dis != 0) {
+        printf("The maximum travel distance = 0.00");
+        return 0;
+    }
     while(nowid != n) {
         int flag = 0, flag2 = 0;
         double minPrice = 999.9;
@@ -42,7 +46,7 @@ int main() {
                 cost += (cmax - remain) * gas[nowid].price;
                 remain = cmax - ((gas[flag].dis - gas[nowid].dis) * 1.0 / cosume);
             }
-            cout << nowid << " " << cost << " " << remain << endl;
+            // cout << nowid << " " << cost << " " << remain << endl;
             nowid = flag;
         }
     }

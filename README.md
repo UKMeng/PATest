@@ -11,5 +11,6 @@
 * 最短路径(Dijkstra算法): [A1003](https://github.com/UKMeng/PATest/blob/master/Aclass/A1003.cpp) [A1018](https://github.com/UKMeng/PATest/blob/master/Aclass/A1018.cpp) [A1030](https://github.com/UKMeng/PATest/blob/master/Aclass/A1030.cpp) [A1072](https://github.com/UKMeng/PATest/blob/master/Aclass/A1072.cpp) [A1087](https://github.com/UKMeng/PATest/blob/master/Aclass/A1087.cpp)
 * 堆：[A1098](https://github.com/UKMeng/PATest/blob/master/Aclass/A1098.cpp)
 * 动态规划：
-* 字符串：[A1077](https://github.com/UKMeng/PATest/blob/master/Aclass/A1077.cpp)
+* 字符串：[A1031](https://github.com/UKMeng/PATest/blob/master/Aclass/A1031.cpp) [A1035](https://github.com/UKMeng/PATest/blob/master/Aclass/A1035.cpp) [A1077](https://github.com/UKMeng/PATest/blob/master/Aclass/A1077.cpp)
 * 贪心：[A1033](https://github.com/UKMeng/PATest/blob/master/Aclass/A1033.cpp)
+* DFS：[A1034](https://github.com/UKMeng/PATest/blob/master/Aclass/A1034.cpp)

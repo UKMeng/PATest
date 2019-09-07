@@ -1,69 +1,60 @@
-#include <iostream>
+#include <iostream> // DFS
+#include <map>
 #include <vector>
 #include <algorithm>
-#include <map>
 using namespace std;
-const int maxn = 2010;
-struct node {
-    int numMember;
-    string head;
-    node(string _head, int _numMember) : head(_head), numMember(_numMember) {}
-};
-int G[maxn][maxn], w[maxn], n, k, nm = 0;
-bool ist[maxn];
-map<string, int> nameid;
-map<int, string> idname;
+int cnt = 1, G[2010][2010], weight[2010], head, totalW, gangNum;
+map<int, string> idTable;
+map<string, int> intTable;
+bool vis[2010];
+struct node {string h; int num; node(string h, int num) : h(h), num(num) {};};
 vector<node> ans;
-int get_id(string s) {
-    int temp;
-    if(nameid.find(s) == nameid.end()) {
-        nameid[s] = nm;
-        temp = nm;
-        idname[nm++] = s;
+int getID(string a) {
+    if(intTable[a] == 0) {
+        idTable[cnt] = a;
+        intTable[a] = cnt;
+        cnt++;
     }
-    else temp = nameid[s];
-    return temp;
+    return intTable[a];
 }
-void dfs(int nowid, int &head, int &numMember, int &totalw) {
-    numMember++;
-    ist[nowid] = true;
-    if(w[nowid] > w[head]) head = nowid;
-    for(auto it = idname.begin(); it != idname.end(); it++) {
-        int cid = it -> first;
-        if(G[nowid][cid] > 0) {
-            totalw += G[nowid][cid];
-            G[nowid][cid] = G[cid][nowid] = 0;
-            if(ist[cid] == false) dfs(cid, head, numMember, totalw);
+void dfs(int a) {
+    vis[a] = true;
+    gangNum++;
+    if(weight[a] > weight[head]) head = a;
+    for(int i = 1; i < cnt; i++) {
+        if(G[a][i] > 0) {
+            totalW += G[a][i];
+            G[a][i] = G[i][a] = 0;
+            if(vis[i] == false) dfs(i);
         }
     }
 }
-void dfstravel() {
-    for(auto it = idname.begin(); it != idname.end(); it++) {
-        int id = it -> first;
-        if(ist[id] == false) {
-            int head = id, numMember = 0, totalw = 0;
-            dfs(id, head, numMember, totalw);
-            if(numMember > 2 && totalw > k) ans.push_back(node(idname[head], numMember));
-        }
-    }
+bool cmp(node a, node b) {
+    return a.h < b.h;
 }
-bool cmp(node a, node b) {return a.head < b.head;}
 int main() {
+    int n, k;
     cin >> n >> k;
     for(int i = 0; i < n; i++) {
-        string name1, name2;
-        int ti, id1, id2;
-        cin >> name1 >> name2 >> ti;
-        id1 = get_id(name1);
-        id2 = get_id(name2);
-        G[id1][id2] += ti;
-        G[id2][id1] += ti;
-        w[id1] += ti;
-        w[id2] += ti;
+        string s1, s2;
+        int t, id1, id2;
+        cin >> s1 >> s2 >> t;
+        id1 = getID(s1);
+        id2 = getID(s2);
+        G[id1][id2] += t;
+        G[id2][id1] += t;
+        weight[id1] += t;
+        weight[id2] += t;
     }
-    dfstravel();
-    cout << ans.size() << endl;
+    for(int i = 1; i < cnt; i++) {
+        if(vis[i] == false) {
+            head = i, gangNum = 0, totalW = 0;
+            dfs(i);
+            if(totalW > k && gangNum > 2) ans.push_back(node(idTable[head], gangNum));
+        }
+    }
     sort(ans.begin(), ans.end(), cmp);
-    for(int i = 0; i < ans.size(); i++) cout << ans[i].head << " " << ans[i].numMember << endl;
+    cout << ans.size() << endl;
+    for(int i = 0; i < ans.size(); i++) cout << ans[i].h << " " << ans[i].num << endl;
     return 0;
 }

@@ -1,56 +1,34 @@
-#include <iostream>
+#include <iostream> // 字符串
 #include <cstring>
+#include <map>
+#include <vector>
 using namespace std;
-int main()
-{
-	int N;
-	cin>>N;
-	string team[1010],pw[1010];
-	bool flag[1010]={false};
-	int num=0;
-	for (int i=0;i<N;i++)
-	{
-		cin>>team[i]>>pw[i];
-		int len=pw[i].length();
-		for(int j=0;j<len;j++)
-		{
-			if(pw[i][j]=='l')
-			{
-				pw[i][j]='L';
-				flag[i]=true;
-			}
-			if(pw[i][j]=='1')
-			{
-				pw[i][j]='@';
-				flag[i]=true;
-			}
-			if(pw[i][j]=='0')
-			{
-				pw[i][j]='%';
-				flag[i]=true;
-			}
-			if(pw[i][j]=='O')
-			{
-				pw[i][j]='o';
-				flag[i]=true;
-			}
+map<string, string> password;
+vector<string> ans;
+int main() {
+	int k;
+	cin >> k;
+	for(int i = 0; i < k; i++) {
+		string id, str;
+		bool flag = false;
+		cin >> id >> str;
+		for(int i = 0; i < str.length(); i++) {
+			if(str[i] == '1') {flag = true; str[i] = '@';}
+			if(str[i] == '0') {flag = true; str[i] = '%';}
+			if(str[i] == 'l') {flag = true; str[i] = 'L';}
+			if(str[i] == 'O') {flag = true; str[i] = 'o';}
 		}
-		if(flag[i]==true)
-			num++;
+		if(flag) {
+				password[id] = str;
+				ans.push_back(id);
+		}
 	}
-	if(num==0)
-		if (N==1)
-			cout<<"There is "<<N<<" account and no account is modified"<<endl;
-		else
-			cout<<"There are "<<N<<" accounts and no account is modified"<<endl;//注意单词的复数形式
-	else 
-	{
-		cout<<num<<endl;
-		for(int i=0;i<N;i++)
-		{
-			if(flag[i]==true)
-				cout<<team[i]<<" "<<pw[i]<<endl;
-		}
+	if(ans.size() == 0) {
+		if(k == 1) cout << "There is 1 account and no account is modified" << endl;
+		else cout << "There are " << k << " accounts and no account is modified" << endl;
+	} else {
+		cout << ans.size() << endl;
+		for(int i = 0; i < ans.size(); i++) cout << ans[i] << " " << password[ans[i]] << endl;
 	}
 	return 0;
 }
