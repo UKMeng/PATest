@@ -12,5 +12,5 @@
 * 堆：[A1098](https://github.com/UKMeng/PATest/blob/master/Aclass/A1098.cpp)
 * 动态规划：
 * 字符串：[A1031](https://github.com/UKMeng/PATest/blob/master/Aclass/A1031.cpp) [A1035](https://github.com/UKMeng/PATest/blob/master/Aclass/A1035.cpp) [A1077](https://github.com/UKMeng/PATest/blob/master/Aclass/A1077.cpp)
-* 贪心：[A1033](https://github.com/UKMeng/PATest/blob/master/Aclass/A1033.cpp)
+* 贪心：[A1033](https://github.com/UKMeng/PATest/blob/master/Aclass/A1033.cpp) [A1037](https://github.com/UKMeng/PATest/blob/master/Aclass/A1037.cpp) 
 * DFS：[A1034](https://github.com/UKMeng/PATest/blob/master/Aclass/A1034.cpp)
