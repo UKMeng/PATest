@@ -1,89 +1,24 @@
-#include <iostream>
-#include <algorithm>
+#include <iostream> // ???????
 using namespace std;
-
-int main()
-{
-    int N, total;
-    int v1 = -1, v2 = -1;
-    scanf("%d %d", & N, & total);
-    int coin[100010] = {0};
-    for(int i = 0; i < N; i++)
-    {
+int hashtable[2010];
+int main() {
+    int n, amount;
+    scanf("%d %d", &n, &amount);
+    for(int i = 0; i < n; i++) {
         int temp;
-        scanf("%d", & temp);
-        coin[temp]++;
+        scanf("%d", &temp);
+        hashtable[temp]++;
     }
-    for(int i = 0; i < total; i++)
-    {
-        if(coin[i])
-        {
-            if(total - i == i) coin[i]--;
-            if(coin[total-i])
-            {
-                v1 = i;
-                v2 = total - i;
-                break;
+    for(int i = 0; i < 1001; i++) {
+        if(i > amount / 2) break;
+        if(hashtable[i]) {
+            hashtable[i]--;
+            if(hashtable[amount - i]) {
+                cout << i << " " << amount - i<< endl;
+                return 0;
             }
         }
     }
-    if(v1 == -1 || v2 == -1)
-        cout << "No Solution";
-    else 
-        cout << v1 << " " << v2;
+    cout << "No Solution" << endl;
     return 0;
 }
-// struct node  // 超时
-// {
-//     int v1, v2;
-//     bool flag = false;
-// }value[100010];
-// int main()
-// {
-//     int N, total;
-//     scanf("%d %d", & N, & total);
-//     int coin[100010] = {0};
-//     for(int i = 0; i < N; i++)
-//     {
-//         scanf("%d", & coin[i]);
-//         if(coin[i] >= total) continue;
-//         for(int j = 0; j < i; j++)
-//         {
-//             int tv1, tv2, temp;
-//             if(coin[j] <= coin[i])
-//             {
-//                 tv1 = coin[j];
-//                 tv2 = coin[i];
-//             }
-//             else
-//             {
-//                 tv1 = coin[i];
-//                 tv2 = coin[j];
-//             }
-//             temp = tv1 + tv2;
-//             if(value[temp].flag == false)
-//             {
-//                 value[temp].flag = true;
-//                 value[temp].v1 = tv1;
-//                 value[temp].v2 = tv2;
-//             }
-//             else
-//             {
-//                 if (tv1 < value[temp].v1)
-//                 {
-//                     value[temp].v1 = tv1;
-//                     value[temp].v2 = tv2;
-//                 }
-//             }
-//         }
-//     }
-//     if (value[total].flag == false)
-//     {
-//         printf("No Solution");
-//     }
-//     else 
-//     {
-//         printf("%d %d", value[total].v1, value[total].v2);
-//     }
-//     return 0;
-// }
