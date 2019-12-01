@@ -67,7 +67,7 @@
 using namespace std;
 vector<int> a, b;
 void downAdjust(int low, int high) {
-    int i = 1, j = i * 2;
+    int i = i, j = i * 2;
     while(j <= high) {
         if(j + 1 <= high && b[j] < b[j + 1]) j++;
         if(b[i] >= b[j]) break;
