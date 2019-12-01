@@ -13,10 +13,9 @@ bool isPrime(string slice) {
 int main() {
     int l, k;
     cin >> l >> k;
-    string num;
+    string num, slice;
     cin >> num;
     bool flag = false;
-    string slice;
     for(int i = 0; i <= l - k; i++) {      
         slice = num.substr(i, k);
         flag = isPrime(slice);
