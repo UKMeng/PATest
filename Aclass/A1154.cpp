@@ -4,32 +4,32 @@
 using namespace std;
 struct node {
     int v1, v2;
-} ;
+};
 int main() {
     int n, m, k;
-    scanf("%d %d", &n, &m);
+    cin >> n >> m;
     vector<node> edge(m);
     for(int i = 0; i < m; i++) {
-        scanf("%d %d", &edge[i].v1, &edge[i].v2);
-    } 
-    scanf("%d", &k);
-    while(k--) {
-        int a[100010] = {0}, flag = 1;
+        cin >> edge[i].v1 >> edge[i].v2;
+    }
+    cin >> k;
+    for(int i = 0; i < k; i++) {
+        int temp[100010];
         set<int> cnt;
-        for(int i = 0; i < n; i++) {
-            int temp;
-            scanf("%d", &temp);
-            a[i] = temp;
-            cnt.insert(temp); 
+        bool flag = true;
+        for(int j = 0; j < n; j++) {
+            int t;
+            cin >> t;
+            cnt.insert(t);
+            temp[j] = t;
         }
-        for(int i = 0; i < m; i++) {
-            if(a[edge[i].v1] == a[edge[i].v2]) {
-                flag = 0;
+        for(int j = 0; j < m; j++) {
+            if(temp[edge[j].v1] == temp[edge[j].v2]) {
+                cout << "No" << endl;
+                flag = false;
                 break;
-            }
-        }
-        if(flag == 1) printf("%d-coloring\n", cnt.size());
-        else printf("No\n");
+            } 
+        } if(flag) cout << cnt.size() << "-coloring" << endl;
     }
     return 0;
 }
