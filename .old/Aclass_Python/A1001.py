@@ -10,5 +10,12 @@ for i in range(0, l):
         print(",", end = "")
 
 '''
+#  n = input().split()
+#  print(format(int(n[0]) + int(n[1]), ','))
+
 n = input().split()
 print(format(int(n[0]) + int(n[1]), ','))
+
+a, b = map(int, input().split())
+c = a + b
+print(format(c, ','))

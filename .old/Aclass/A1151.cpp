@@ -17,8 +17,8 @@ int main() {
         int u, v;
         bool f1 = true, f2 = true;
         cin >> u >> v;
-        if(mapp.find(u) == mapp.end()) f1 = false;
-        if(mapp.find(v) == mapp.end()) f2 = false;
+        if(mapp[u] == 0 && u != in[0]) f1 = false;
+        if(mapp[v] == 0 && v != in[0]) f2 = false;
         if(!f1 || !f2) {
             if(!f1 && f2) cout << "ERROR: " << u << " is not found." << endl;
             if(!f2 && f1) cout << "ERROR: " << v << " is not found." << endl;
