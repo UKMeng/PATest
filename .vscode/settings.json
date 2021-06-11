@@ -9,6 +9,7 @@
         "algorithm": "cpp",
         "unordered_map": "cpp",
         "typeinfo": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "utility": "cpp"
     }
 }
