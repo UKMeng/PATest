@@ -11,7 +11,8 @@
         "typeinfo": "cpp",
         "stack": "cpp",
         "utility": "cpp",
-        "memory": "cpp"
+        "memory": "cpp",
+        "istream": "cpp"
     },
     "python.pythonPath": "/usr/local/opt/python@3.9/bin/python3.9"
 }
