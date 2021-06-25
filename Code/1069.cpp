@@ -13,9 +13,7 @@ int main(){
         reverse(n2.begin(), n2.end());
         int temp = stoi(n2) - stoi(n1);
         string nextStr = to_string(temp);
-        while(nextStr.size() < 4){
-            nextStr.insert(0, "0");
-        }
+        nextStr.insert(0, 4-nextStr.length(), '0');
         cout << n2 << " - " << n1 << " = " << nextStr << endl;
         n1 = nextStr;
     } while(n1 != "6174" && n1 != "0000");  
